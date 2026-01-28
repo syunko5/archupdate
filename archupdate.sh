@@ -8,11 +8,10 @@ read -p "Input Choice: " choice
 # aur helper
 case "$choice" in
   1)
-  echo "Select your AUR helper or pacman"
+  echo "Select your AUR helper"
   echo "1) yay"
   echo "2) paru"
-  echo "3) pacman"
-  echo "4) exit"
+  echo "3) exit"
   
   read -p "Input Choice: " aurhelper
   ;;
@@ -59,29 +58,6 @@ case "$paruscript" in
    paru -Syu
    paru -Scc
    paru -Yc
-   sudo pacman -Rns $(pacman -Qtdq)
-   rm -rf ~/.cache/*
-   ;;
-esac
-
-# pacman script
-case "$aurhelper" in
-  3)
-  echo "Checking archlinux.org news"
-  paru -Pw
-  
-  echo "Do you wanna update all packages and clean all cache and unused packages?"
-  echo "1) yes"
-  echo "2) no"
-
-  read -p "Input Choice: " pacmanscript
-  ;;
-esac
-case "$pacmanscript" in
-   1)
-   sudo pacman -Syu
-   sudo pacman -Scc
-   sudo pacman -Yc
    sudo pacman -Rns $(pacman -Qtdq)
    rm -rf ~/.cache/*
    ;;
